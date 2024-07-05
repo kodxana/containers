@@ -68,6 +68,10 @@ COPY --from=proxy readme.html /usr/share/nginx/html/readme.html
 # Copy the README.md
 COPY README.md /usr/share/nginx/html/README.md
 
+# Set environment variables for runtime
+ENV PATH="/workspace/venv/bin:$PATH"
+ENV VIRTUAL_ENV="/workspace/venv"
+
 # Start Scripts
 COPY pre_start.sh /pre_start.sh
 COPY --from=scripts start.sh /
